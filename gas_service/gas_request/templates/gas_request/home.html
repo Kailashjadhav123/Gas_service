@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body style="padding: 50px;">
+    
+    {% if request.user.is_authenticated %}
+        <h2 style="text-transform: capitalize;"> Welcome, {{request.user}} !! </h2> <hr><br>
+        <a href="create_request"> Create Request </a> <br><br>
+        <a href="track_request"> Track Request </a> <br><br>
+
+        {% if request.user.is_staff %}
+            <a href="mark_completed"> Resolve Request </a> <br><br>
+        {% endif %}
+
+        <a href="logout"> Logout </a> <br><br>
+    {% else %}
+        <h2 style="text-transform: capitalize;"> Welcome, Guest !! </h2>
+        <a href="signup"> Register </a> <br><br>
+        <a href="login"> Login </a> <br><br>
+        
+    {% endif %}
+
+
+    
+
+</body>
+</html>

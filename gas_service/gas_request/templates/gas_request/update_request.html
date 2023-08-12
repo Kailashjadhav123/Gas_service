@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Request</title>
+</head>
+<body style="padding: 50px;">
+    <h2 style="text-transform: capitalize;"> Welcome, {{request.user}} !!</h2><hr> <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{fm.as_p}}
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

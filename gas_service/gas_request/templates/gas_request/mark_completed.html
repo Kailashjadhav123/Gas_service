@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolve Request</title>
+</head>
+<body style="padding: 50px;">
+    <h2>Resolve Request</h2>
+    <h2 style="text-transform: capitalize;"> Welcome, {{request.user}} !!</h2> <hr> <br>
+    <table border="1">
+        <tr>
+            <th>Request No</th>
+            <th>Customer Name</th>
+            <th>Contact Number</th>
+            <th>Address</th>
+            <th>Request Type</th>
+            <th>Description</th>
+            <th>Completed</th>
+            <th>Request Create Date & Time</th>
+            <th>Request Resolved Date & Time</th>
+            <th>Action</th>
+        </tr>
+        {% for i in requests %}
+            <tr>
+                <td> {{i.id}} </td>
+                <td> {{i.customer_name}} </td>
+                <td> {{i.contact_number}} </td>
+                <td> {{i.address}} </td>
+                <td> {{i.request_type}} </td>
+                <td> {{i.description}} </td>
+                <td> {{i.is_completed}} </td>
+                <td> {{i.timestamp}} </td>
+                <td> {{i.completion_timestamp}} </td>
+                <td><a href="{% url 'update_request' i.id %}" > <button class="btn">Resolve</button></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
